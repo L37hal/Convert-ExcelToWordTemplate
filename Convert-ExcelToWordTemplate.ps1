@@ -34,12 +34,12 @@ Param(
 
 # Get Scripts
 
-if (!".\Get-ExcelWorkSheet.ps1")
+if (!(!".\Get-ExcelWorkSheet.ps1"))
 {
  Invoke-WebRequest -Uri "https://raw.githubusercontent.com/L37hal/Get-ExcelWorkSheet/master/Get-ExcelWorkSheet.ps1" -OutFile ".\Get-ExcelWorkSheet.ps1"
 }
 
-if (!".\Replace-WordTemplate.ps1")
+if (!(!".\Replace-WordTemplate.ps1"))
 {
  Invoke-WebRequest -Uri "https://raw.githubusercontent.com/L37hal/Replace-WordTemplate/master/Replace-WordTemplate.ps1" -OutFile ".\Replace-WordTemplate.ps1"
 }
@@ -181,3 +181,6 @@ For ($i = 0; $i -le $excelData.count-1; $i++)
     . .\Replace-WordTemplate -Template $Template -OutPath $OutputFilename -Mappings $Mappings -Dataset $Dataset
     Write-Host "Generated: $OutputFilename`n"
 }
+
+Remove-Item ".\Get-ExcelWorkSheet.ps1"
+Remove-Item ".\Replace-WordTemplate.ps1"
