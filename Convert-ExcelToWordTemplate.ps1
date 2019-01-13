@@ -36,12 +36,12 @@ Set-Location $PSScriptRoot
 
 # Get Scripts
 
-if (!(!".\Get-ExcelWorkSheet.ps1"))
+if (!(Test-Path ".\Get-ExcelWorkSheet.ps1"))
 {
  Invoke-WebRequest -Uri "https://raw.githubusercontent.com/L37hal/Get-ExcelWorkSheet/master/Get-ExcelWorkSheet.ps1" -OutFile ".\Get-ExcelWorkSheet.ps1"
 }
 
-if (!(!".\Replace-WordTemplate.ps1"))
+if (!(Test-Path ".\Replace-WordTemplate.ps1"))
 {
  Invoke-WebRequest -Uri "https://raw.githubusercontent.com/L37hal/Replace-WordTemplate/master/Replace-WordTemplate.ps1" -OutFile ".\Replace-WordTemplate.ps1"
 }
