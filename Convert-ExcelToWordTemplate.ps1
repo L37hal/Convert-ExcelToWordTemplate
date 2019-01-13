@@ -175,7 +175,7 @@ $text += "Press Ctrl+C to quit..."
 Clear-Host
 Write-Host $text
 pause
-
+Clear-Host
 For ($i = 0; $i -le $excelData.count-1; $i++)
 {
     $OutputFilename = Get-OutputFilename($i)
