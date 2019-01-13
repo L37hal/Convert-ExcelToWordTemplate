@@ -29,8 +29,10 @@ Param(
     [parameter(Mandatory=$false)][string]$OutFileFolder,
     [parameter(Mandatory=$false)][string]$OutFilePrefix,
     [parameter(Mandatory=$false)][string]$OutFileHeadersuffix,
-    [parameter(Mandatory=$false)][string]$initialDirectory = "C:\"
+    [parameter(Mandatory=$false)][string]$initialDirectory = "$PSScriptRoot"
 ) # End Param()
+
+Set-Location $PSScriptRoot
 
 # Get Scripts
 
@@ -87,7 +89,7 @@ if (!(test-path $MappingsFile))
     $Mappings = new-object PSObject
     For ($i = 0; $i -le $Headers.count-1; $i++)
     {
-        $uniqueID = -join ((65..90) + (97..122) | Get-Random -Count 7 | % {[char]$_})
+        $uniqueID = -join ((65..90) + (97..122) | Get-Random -Count 7 | ForEach-Object {[char]$_})
         $uniqueID = "a$uniqueID"
         $Mappings | add-member -membertype NoteProperty -name $Headers[$i] -Value  $uniqueID
     }
